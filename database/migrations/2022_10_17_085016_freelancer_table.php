@@ -11,16 +11,15 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() // makes table
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create('freelancer', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->string('freelancer_name');
+            $table->string('freelancer_email');
+            $table->string('freelancer_status')->nullable();
+            $table->string('freelancer_role');
+            $table->string('freelancer_contact');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        //
     }
 };
