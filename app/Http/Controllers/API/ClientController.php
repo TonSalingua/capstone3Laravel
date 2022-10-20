@@ -32,4 +32,13 @@ class ClientController extends Controller
         ]);
     }
 
+    public function deleteClient ($id){
+        $client = Client::find($id);
+        $client ->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message'=>'Client record deleted successfully'
+        ]);
+    }
 }
