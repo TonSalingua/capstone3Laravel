@@ -21,14 +21,17 @@ class ClientController extends Controller
     public function addClient(Request $request){
         $client = new Client;
         $client->name = $request->input('name');
+        $client->concerns = $request->input('concerns');
+        $client->contactNo = $request->input('contactNo');
         $client->email = $request->input('email');
-        $client->phone = $request->input('phone');
-        $client->project = $request->input('project');
+        $client->availableTime = $request->input('availableTime');
+        $client->validId = $request->input('validId');
+        $client->status = $request->input('status');
         $client->save();
 
         return response()->json([
             'status' => 200,
-            'message'=>'Client Added Successfully'
+            'client'=>$client,
         ]);
     }
 
@@ -41,21 +44,25 @@ class ClientController extends Controller
     }
 
     public function updateClient (Request $request, $id){
-        $client = Client::find($id);
+        $client = Client::where('idNo', $id);
         $client->name = $request->input('name');
-        $client->course = $request->input('course');
+        $client->concerns = $request->input('concerns');
+        $client->contactNo = $request->input('contactNo');
         $client->email = $request->input('email');
-        $client->phone = $request->input('phone');
-        $client->update();
+        $client->availableTime = $request->input('availableTime');
+        $client->validId = $request->input('validId');
+        $client->status = $request->input('status');
+        $input = $request->all();
+        $client->update($input);
 
         return response()->json([
             'status' => 200,
-            'message'=>'Client Updated Successfully'
+            'client'=>$client,
         ]);
     }
 
     public function deleteClient ($id){
-        $client = Client::find($id);
+        $client = Client::where('idNo',$id);
         $client ->delete();
 
         return response()->json([
