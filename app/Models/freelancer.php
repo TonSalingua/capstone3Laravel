@@ -11,10 +11,10 @@ class freelancer extends Model
 
 
     protected $fillable = [
-        'freelancer_name',
-        'freelancer_email',
-        'freelancer_status',
-        'freelancer_role',
-        'freelancer_contact'
+        'Name',
+        'Email',
+        'Role',
+        'Status',
+        'password'
     ];
 }
