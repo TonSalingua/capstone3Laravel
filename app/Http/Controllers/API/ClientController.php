@@ -9,16 +9,18 @@ use App\Models\Client;
 class ClientController extends Controller
 {
 
-    public function getClients(){
+    public function getClients()
+    {
         $clients = Client::all();
 
         return response()->json([
             'status' => 200,
-            'clients'=>$clients,
+            'clients' => $clients,
         ]);
     }
 
-    public function addClient(Request $request){
+    public function addClient(Request $request)
+    {
         $client = new Client;
         $client->name = $request->input('name');
         $client->concerns = $request->input('concerns');
@@ -31,19 +33,20 @@ class ClientController extends Controller
 
         return response()->json([
             'status' => 200,
-            'client'=>$client,
+            'client' => $client,
         ]);
     }
 
-    public function editClient ($id){
-        $client = Client::find($id);
-        return response()->json([
-            'status'=>200,
-            'client'=>$client,
-        ]);
-    }
+    // public function editClient ($id){
+    //     $client = Client::find($id);
+    //     return response()->json([
+    //         'status'=>200,
+    //         'client'=>$client,
+    //     ]);
+    // }
 
-    public function updateClient (Request $request, $id){
+    public function updateClient(Request $request, $id)
+    {
         $client = Client::where('idNo', $id);
         $client->name = $request->input('name');
         $client->concerns = $request->input('concerns');
@@ -57,17 +60,18 @@ class ClientController extends Controller
 
         return response()->json([
             'status' => 200,
-            'client'=>$client,
+            'client' => $client,
         ]);
     }
 
-    public function deleteClient ($id){
-        $client = Client::where('idNo',$id);
-        $client ->delete();
+    public function deleteClient($id)
+    {
+        $client = Client::where('idNo', $id);
+        $client->delete();
 
         return response()->json([
             'status' => 200,
-            'message'=>'Client record deleted successfully'
+            'message' => 'Client record deleted successfully'
         ]);
     }
 }
