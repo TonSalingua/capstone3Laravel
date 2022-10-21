@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\pendingClient;
+use App\Models\PendingClient;
 
-class pendingClientController extends Controller
+class PendingClientController extends Controller
 {
 
     public function getpendingClients()
