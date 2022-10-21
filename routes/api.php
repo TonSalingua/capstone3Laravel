@@ -18,10 +18,10 @@ Route::put('/update-project/{id}', [ProjectController::class, 'updateProject']);
 Route::delete('/delete-project/{id}', [ProjectController::class, 'deleteProject']);
 
 
-Route::get('/Freelancers', [ProjectController::class, 'getFreelancers']);
-Route::post('/add-Freelancers', [ProjectController::class, 'addFreelancers']);
-Route::put('/update-Freelancers/{id}', [ProjectController::class, 'updateFreelancers']);
-Route::delete('/delete-Freelancers/{id}', [ProjectController::class, 'deleteFreelancers']);
+Route::get('/freelancers', [FreelancersController::class, 'getFreelancers']);
+Route::post('/add-freelancers', [FreelancersController::class, 'addFreelancers']);
+Route::put('/update-freelancers/{id}', [FreelancersController::class, 'updateFreelancers']);
+Route::delete('/delete-freelancers/{id}', [FreelancersController::class, 'deleteFreelancers']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -21,11 +21,11 @@ class FreelancersController extends Controller
 
     public function addFreelancers(Request $request)
     {
-        $freelancers = new Freelancers();
-        $freelancers->name = $request->input('Name');
-        $freelancers->email = $request->input('Email');
-        $freelancers->role = $request->input('Role');
-        $freelancers->status = $request->input('Status');
+        $freelancers = new Freelancer();
+        $freelancers->name = $request->input('name');
+        $freelancers->email = $request->input('email');
+        $freelancers->role = $request->input('role');
+        $freelancers->status = $request->input('status');
         $freelancers->password_hash = $request->input('password');
         $freelancers->save();
 
@@ -38,11 +38,11 @@ class FreelancersController extends Controller
 
     public function updateFreelancers(Request $request, $id)
     {
-        $freelancers = Freelancers::where('idNo', $id);
-        $freelancers->name = $request->input('Name');
-        $freelancers->email = $request->input('Email');
-        $freelancers->role = $request->input('Role');
-        $freelancers->status = $request->input('Status');
+        $freelancers = Freelancer::where('idNo', $id);
+        $freelancers->name = $request->input('name');
+        $freelancers->email = $request->input('email');
+        $freelancers->role = $request->input('role');
+        $freelancers->status = $request->input('status');
         $freelancers->password_hash = $request->input('password');
         $input = $request->all();
         $freelancers->update($input);
@@ -55,7 +55,7 @@ class FreelancersController extends Controller
 
     public function deleteFreelancers($id)
     {
-        $freelancers = Freelancers::where('idNo', $id);
+        $freelancers = Freelancer::where('idNo', $id);
         $freelancers->delete();
 
         return response()->json([
