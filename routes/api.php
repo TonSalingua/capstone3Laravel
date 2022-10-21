@@ -10,6 +10,11 @@ Route::post('/add-client', [ClientController::class, 'addClient']);
 Route::put('/update-client/{id}', [ClientController::class, 'updateClient']);
 Route::delete('/delete-client/{id}', [ClientController::class, 'deleteClient']);
 
+Route::get('/project', [ProjectController::class, 'getProject']);
+Route::post('/add-project', [ProjectController::class, 'addProject']);
+Route::put('/update-project/{id}', [ProjectController::class, 'updateProject']);
+Route::delete('/delete-project/{id}', [ProjectController::class, 'deleteProject']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
