@@ -9,7 +9,7 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
 
-    public function getProject()
+    public function getProjects()
     {
         $projects = Project::all();
 
@@ -37,7 +37,7 @@ class ProjectController extends Controller
 
     public function updateProject(Request $request, $id)
     {
-        $project = Project::where('id', $id);
+        $project = Project::where('idNo', $id);
         $project->Projectname = $request->input('Projectname');
         $project->ClientName = $request->input('ClientName');
         $project->GanteChartPic = $request->input('GanteChartPic');
@@ -53,7 +53,7 @@ class ProjectController extends Controller
 
     public function deleteProject($id)
     {
-        $project = Project::where('id', $id);
+        $project = Project::where('idNo', $id);
         $project->delete();
 
         return response()->json([

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\ClientController;
+use App\Http\Controllers\API\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +11,7 @@ Route::post('/add-client', [ClientController::class, 'addClient']);
 Route::put('/update-client/{id}', [ClientController::class, 'updateClient']);
 Route::delete('/delete-client/{id}', [ClientController::class, 'deleteClient']);
 
-Route::get('/project', [ProjectController::class, 'getProject']);
+Route::get('/project', [ProjectController::class, 'getProjects']);
 Route::post('/add-project', [ProjectController::class, 'addProject']);
 Route::put('/update-project/{id}', [ProjectController::class, 'updateProject']);
 Route::delete('/delete-project/{id}', [ProjectController::class, 'deleteProject']);
