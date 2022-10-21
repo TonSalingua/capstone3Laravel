@@ -19,9 +19,9 @@ Route::delete('/delete-project/{id}', [ProjectController::class, 'deleteProject'
 
 
 Route::get('/freelancers', [FreelancersController::class, 'getFreelancers']);
-Route::post('/add-freelancers', [FreelancersController::class, 'addFreelancers']);
-Route::put('/update-freelancers/{id}', [FreelancersController::class, 'updateFreelancers']);
-Route::delete('/delete-freelancers/{id}', [FreelancersController::class, 'deleteFreelancers']);
+Route::post('/add-freelancer', [FreelancersController::class, 'addFreelancer']);
+Route::put('/update-freelancer/{id}', [FreelancersController::class, 'updateFreelancer']);
+Route::delete('/delete-freelancer/{id}', [FreelancersController::class, 'deleteFreelancer']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

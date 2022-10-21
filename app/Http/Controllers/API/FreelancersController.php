@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Freelancers;
+use App\Models\Freelancer;
 
 class FreelancersController extends Controller
 {
@@ -19,44 +19,44 @@ class FreelancersController extends Controller
         ]);
     }
 
-    public function addFreelancers(Request $request)
+    public function addFreelancer(Request $request)
     {
-        $freelancers = new Freelancer();
-        $freelancers->name = $request->input('name');
-        $freelancers->email = $request->input('email');
-        $freelancers->role = $request->input('role');
-        $freelancers->status = $request->input('status');
-        $freelancers->password_hash = $request->input('password');
-        $freelancers->save();
+        $freelancer = new Freelancer;
+        $freelancer->name = $request->input('name');
+        $freelancer->email = $request->input('email');
+        $freelancer->role = $request->input('role');
+        $freelancer->status = $request->input('status');
+        $freelancer->password = $request->input('password');
+        $freelancer->save();
 
         return response()->json([
             'status' => 200,
-            'freelancers' => $freelancers,
+            'freelancer' => $freelancer,
         ]);
     }
 
 
-    public function updateFreelancers(Request $request, $id)
+    public function updateFreelancer(Request $request, $id)
     {
-        $freelancers = Freelancer::where('idNo', $id);
-        $freelancers->name = $request->input('name');
-        $freelancers->email = $request->input('email');
-        $freelancers->role = $request->input('role');
-        $freelancers->status = $request->input('status');
-        $freelancers->password_hash = $request->input('password');
+        $freelancer = Freelancer::where('idNo', $id);
+        $freelancer->name = $request->input('name');
+        $freelancer->email = $request->input('email');
+        $freelancer->role = $request->input('role');
+        $freelancer->status = $request->input('status');
+        $freelancer->password_hash = $request->input('password');
         $input = $request->all();
-        $freelancers->update($input);
+        $freelancer->update($input);
 
         return response()->json([
             'status' => 200,
-            'freelancers' => $freelancers,
+            'freelancer' => $freelancer,
         ]);
     }
 
-    public function deleteFreelancers($id)
+    public function deleteFreelancer($id)
     {
-        $freelancers = Freelancer::where('idNo', $id);
-        $freelancers->delete();
+        $freelancer = Freelancer::where('idNo', $id);
+        $freelancer->delete();
 
         return response()->json([
             'status' => 200,
