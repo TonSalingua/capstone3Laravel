@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\API\ClientController;
-use App\Http\Controllers\API\PendingClientController;
 use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\FreelancersController;
 use Illuminate\Http\Request;
@@ -12,12 +11,6 @@ Route::post('/add-client', [ClientController::class, 'addClient']);
 // Route::get('/edit-client/{id}', [ClientController::class, 'editClient']);
 Route::put('/update-client/{id}', [ClientController::class, 'updateClient']);
 Route::delete('/delete-client/{id}', [ClientController::class, 'deleteClient']);
-
-Route::get('/pendingclients', [PendingClientController::class, 'getpendingClients']);
-Route::post('/add-pendingclient', [PendingClientController::class, 'addpendingClient']);
-// Route::get('/edit-client/{id}', [ClientController::class, 'editClient']);
-Route::put('/update-pendingclient/{id}', [PendingClientController::class, 'updatependingClient']);
-Route::delete('/delete-pendingclient/{id}', [PendingClientController::class, 'deletependingClient']);
 
 
 Route::get('/project', [ProjectController::class, 'getProjects']);
