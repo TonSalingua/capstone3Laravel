@@ -26,6 +26,7 @@ class ProjectController extends Controller
         $project->ClientName = $request->input('ClientName');
         $project->GanteChartPic = $request->input('GanteChartPic');
         $project->status = $request->input('status');
+        $project->isPending = $request->input('isPending');
         $project->save();
 
         return response()->json([
@@ -41,6 +42,7 @@ class ProjectController extends Controller
         $project->Projectname = $request->input('Projectname');
         $project->ClientName = $request->input('ClientName');
         $project->GanteChartPic = $request->input('GanteChartPic');
+        $project->isPending = $request->input('isPending');
         $project->status = $request->input('status');
         $input = $request->all();
         $project->update($input);
