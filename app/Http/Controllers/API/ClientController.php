@@ -29,6 +29,7 @@ class ClientController extends Controller
         $client->availableTime = $request->input('availableTime');
         $client->validId = $request->input('validId');
         $client->status = $request->input('status');
+        $client->isPending = $request->input('isPending');
         $client->save();
 
         return response()->json([
@@ -55,6 +56,7 @@ class ClientController extends Controller
         $client->availableTime = $request->input('availableTime');
         $client->validId = $request->input('validId');
         $client->status = $request->input('status');
+        $client->isPending = $request->input('isPending');
         $input = $request->all();
         $client->update($input);
 
