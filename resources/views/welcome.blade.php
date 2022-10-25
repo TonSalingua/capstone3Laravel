@@ -7,6 +7,6 @@
     <title>Laravel - Api</title>
 </head>
 <body>
-    <div><p>LARAVEL API WORKING . . . . . . . </p></div>
+    <div><p>LARAVEL API WORKING . . . . . . . .</p></div>
 </body>
 </html>
